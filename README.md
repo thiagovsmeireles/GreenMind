@@ -50,12 +50,13 @@ O projeto foi construído com as seguintes ferramentas e bibliotecas:
 
 ## 📂 Estrutura de Arquivos
 
-
+```text
 .├── index.html
  ├── styles.css
  ├── script.js
  └── assets/
     └── logo.png
+```   
 
 ---
 
