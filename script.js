@@ -34,16 +34,22 @@
   });
 
   // Smooth scroll
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      // 🚩 CHECK DE SEGURANÇA: Se for um link externo (target="_blank"), sai da função.
+      if (link.hasAttribute('target') && link.getAttribute('target') === '_blank') {
+          return;
+      }
+
+      if (!href || !href.startsWith('#')) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
   // Portfolio modal
   const openCase = (btn) => {
